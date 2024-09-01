@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% if title %}
+    <title>{{ title }} - Microblog</title>
+    {% else %}
+    <title>Welcome to my Microblog</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>
+      Microblog : <a href="/index">Home</a>
+      <a href="/login">LogIn</a>
+    </div>
+    <hr />
+    {% with messages = get_flashed_message() %} {% if messages%}
+    <ul>
+      {% for mess in message %}
+      <li>{{mess}}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %} {% block content %} {% endblock %}
+  </body>
+</html>
