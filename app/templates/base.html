@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {% if title %}
-    <title>{{ title }} - Microblog</title>
+    <title>{{ title }} - microblog</title>
     {% else %}
-    <title>Welcome to my Microblog</title>
+    <title>microblog</title>
     {% endif %}
   </head>
   <body>
     <div>
-      Microblog : <a href="/index">Home</a>
-      <a href="/login">LogIn</a>
+      Microblog:
+      <a href="/index">Home</a>
+      <a href="/login">Login</a>
     </div>
     <hr />
-    {% with messages = get_flashed_message() %} {% if messages%}
+    {% with messages = get_flashed_messages() %} {% if messages %}
     <ul>
-      {% for mess in message %}
-      <li>{{mess}}</li>
+      {% for message in messages %}
+      <li>{{ message }}</li>
       {% endfor %}
     </ul>
-    {% endif %} {% endwith %} {% block content %} {% endblock %}
+    {% endif %} {% endwith %} {% block content %}{% endblock %}
   </body>
 </html>
