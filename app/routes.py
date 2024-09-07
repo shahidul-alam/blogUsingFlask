@@ -12,7 +12,6 @@ from urllib.parse import urlsplit
 
 @login_required
 def index():
-    user = {'username': 'Miguel'}
     posts = [
         {
             'author': {'username': 'John'},
